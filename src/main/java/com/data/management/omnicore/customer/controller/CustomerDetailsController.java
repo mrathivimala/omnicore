@@ -2,6 +2,8 @@ package com.data.management.omnicore.customer.controller;
 
 import com.data.management.omnicore.customer.models.Customer;
 import com.data.management.omnicore.customer.repository.CustomerRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,8 @@ import java.util.List;
 //@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin(origins = "http://16.176.215.93")
 public class CustomerDetailsController {
+    private static final Logger logger =
+            LoggerFactory.getLogger(CustomerDetailsController.class);
     @GetMapping("/")
     public String test() {
 
@@ -27,7 +31,7 @@ public class CustomerDetailsController {
     @GetMapping("/list")
     public ResponseEntity<List<Customer>> fetchCustomerList() {
         List<Customer> customerList =customerRepository.findAll();
-        System.out.println("customerList::"+customerList.size());
+        logger.info("customerList::"+customerList.size());
         return ResponseEntity.ok(customerList);
     }
     @PostMapping("/save_customer")
