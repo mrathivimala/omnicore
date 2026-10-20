@@ -27,6 +27,7 @@ public class CustomerDetailsController {
     @GetMapping("/list")
     public ResponseEntity<List<Customer>> fetchCustomerList() {
         List<Customer> customerList =customerRepository.findAll();
+        System.out.println("customerList::"+customerList.size());
         return ResponseEntity.ok(customerList);
     }
     @PostMapping("/save_customer")
