@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/customer")
 //@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "http://16.176.215.93:4200")
+@CrossOrigin(origins = "http://16.176.215.93")
 public class CustomerDetailsController {
     @GetMapping("/")
     public String test() {
